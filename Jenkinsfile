@@ -21,7 +21,6 @@ pipeline {
                     to: "sathiyanarayanan.test@gmail.com",
                     subject: "Build Successful",
                     body: "The build was successful. Please find attached build log.",
-                    attachLog: true
             )
                 }
                 failure {
