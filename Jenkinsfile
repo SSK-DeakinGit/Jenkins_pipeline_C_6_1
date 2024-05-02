@@ -17,8 +17,10 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    emailext attachLog: true, to: "sathiyanarayanan.test@gmail.com", subject: "Testing successful", body: "Tests using JUnit and Selenium are successful"
-                    
+                    mail to: "sathiyanarayanan.test@gmail.com", 
+                         subject: "Testing successful", 
+                         body: "Tests using JUnit and Selenium are successful", 
+                         attachmentsPattern: '**/build.log'
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
