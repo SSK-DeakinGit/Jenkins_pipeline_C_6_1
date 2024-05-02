@@ -17,12 +17,11 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    script {
-                        emailext attachLog: true,
-                            to: "sathiyanarayanan.test@gmail.com",
-                            subject: "Testing successful",
-                            body: "Tests using JUnit and Selenium are successful"
-                    }
+                    emailext(
+                    subject: "Build Successful",
+                    body: "The build was successful. Please find attached build log.",
+                    attachLog: true
+            )
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
