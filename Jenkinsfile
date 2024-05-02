@@ -20,7 +20,7 @@ pipeline {
                     mail to: "sathiyanarayanan.test@gmail.com", 
                          subject: "Testing successful", 
                          body: "Tests using JUnit and Selenium are successful", 
-                         attachmentsPattern: '**/build.log'
+                         attachments: '**/build.log'
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
