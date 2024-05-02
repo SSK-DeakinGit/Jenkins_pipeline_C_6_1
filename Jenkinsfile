@@ -17,14 +17,17 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    emailext body: 'body', subject: 'sub', to: 'sathiyanarayanan.test@gmail.com'
+                    mail to: "sathiyanarayanan.test@gmail.com",
+                    subject: "Testing Successful",
+                    body: "Tests using JUnit and Selenium is successful"
+                    
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
                     echo 'Sending failure notification email - Test'
                     mail to: "sathiyanarayanan.test@gmail.com",
                     subject: "Testing failed",
-                    body: "Tests using JUnit and Selenium is failed"
+                    body: "Tests using JUnit and Selenium failed"
                     
                 }
             }
