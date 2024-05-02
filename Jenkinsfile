@@ -19,8 +19,7 @@ pipeline {
                     echo 'Sending success notification email - Test'
                     mail to: "sathiyanarayanan.test@gmail.com",
                     subject: "Build Successful",
-                    body: "The build was successful. Please find attached build log.",
-                    attachLog: true
+                    body: "Build Log: \n${buildLog}",
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
