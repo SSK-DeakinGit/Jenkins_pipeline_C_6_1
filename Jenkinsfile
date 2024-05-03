@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -12,7 +13,9 @@ pipeline {
             steps {
                 // Using test automation tools like JUnit for unit tests and Selenium for integration tests
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
+                echo "flag1"
                 echo "hello world" > test.log
+                echo "flag2"
             }
             post {
                 success {
