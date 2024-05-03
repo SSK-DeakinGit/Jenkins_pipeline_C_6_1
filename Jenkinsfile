@@ -16,8 +16,10 @@ pipeline {
             post {
                 always {
                     script {
-                        // Save console output to a file
+                        // Define the file name for the log
                         def logsFile = 'build_logs.txt'
+                
+                        // Redirect console output to the log file
                         writeFile file: logsFile, text: currentBuild.rawBuild.getLog(1000).join('\n')
                 
                         // Sending notification email with logs attachment
@@ -26,7 +28,7 @@ pipeline {
                                  to: "sathiyanarayanan.test@gmail.com",
                                  subject: "Build Status - ${currentBuild.result}",
                                  body: "Build ${currentBuild.result}: ${env.BUILD_URL}"
-                    }
+                        }
                 }
                 success {
                     // Sending notification email with success status and logs attachment
