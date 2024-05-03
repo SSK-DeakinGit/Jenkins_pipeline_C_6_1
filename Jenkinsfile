@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Using a build automation tool like Maven to compiling and packaging your code
+                // Using a build automation tool like Maven for compiling and packaging your code
                 echo 'Building code using Maven'
             }
         }
@@ -15,7 +15,6 @@ pipeline {
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
             }
             post {
-                
                     success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
@@ -78,13 +77,13 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                // Deploy the application to a staging server with AWS EC2
+                // Deploying the application to a staging server with AWS EC2
                 echo 'Deploying to staging server with AWS EC2 instance'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                // Run integration tests on the staging environment with Selenium
+                // Running integration tests on the staging environment with Selenium
                 echo 'Running integration tests on staging environment using Selenium'
             }
             post {
@@ -114,7 +113,7 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-                // Deploy the application to a production server like AWS EC2
+                // Deploying the application to a production server like AWS EC2
                 echo 'Deploying to production server in AWS EC2 instance)'
             }
         }
