@@ -14,25 +14,15 @@ pipeline {
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
             }
             post {
-                always {
-                    script {
-                        // Archive build logs as an artifact
-                        archiveArtifacts artifacts: 'build_logs.txt', onlyIfSuccessful: false
-                
-                        // Sending notification email with logs attachment
-                        emailext attachLog: true,
-                                 attachmentsPattern: 'build_logs.txt',
-                                 to: "sathiyanarayanan.test@gmail.com",
-                                 subject: "Build Status - ${currentBuild.result}",
-                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}"
-                        }
-                }
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    mail to: "sathiyanarayanan.test@gmail.com",
-                    subject: "Testing Successful",
-                    body: "Tests using JUnit and Selenium is successful"
+                    emailext (
+                        to: "sathiyanarayanan.test@gmail.com",
+                        subject: "Testing Successful",
+                        body: "Tests using JUnit and Selenium is successful",
+                        attachLog: true
+                    )
                     
                 }
                 failure {
