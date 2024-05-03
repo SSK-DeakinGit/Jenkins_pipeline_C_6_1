@@ -16,18 +16,15 @@ pipeline {
             post {
                 always {
                     script {
-                        // Define the file name for the log
-                        def logsFile = 'build_logs.txt'
-                
-                        // Redirect console output to the log file
-                        writeFile file: logsFile, text: currentBuild.rawBuild.getLog(1000).join('\n')
+                        // Archive build logs as an artifact
+                        archiveArtifacts artifacts: 'build_logs.txt', onlyIfSuccessful: false
                 
                         // Sending notification email with logs attachment
                         emailext attachLog: true,
-                                 attachmentsPattern: logsFile,
+                                 attachmentsPattern: 'build_logs.txt',
                                  to: "sathiyanarayanan.test@gmail.com",
                                  subject: "Build Status - ${currentBuild.result}",
-                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}"
+                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}""
                         }
                 }
                 success {
