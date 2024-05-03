@@ -57,7 +57,7 @@ pipeline {
                     emailext (
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Security scan successful",
-                        body: "security scan with OWASP ZAP is sucessful",
+                        body: "Security scan with OWASP ZAP is sucessful",
                         attachLog: true
                     )
                     
@@ -68,7 +68,7 @@ pipeline {
                     emailext (
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Security scan failed",
-                        body: "security scan with OWASP ZAP failed",
+                        body: "Security scan with OWASP ZAP failed",
                         attachLog: true
                         )
                     
