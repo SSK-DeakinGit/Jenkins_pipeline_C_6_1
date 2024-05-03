@@ -13,22 +13,19 @@ pipeline {
             steps {
                 // Using test automation tools like JUnit for unit tests and Selenium for integration tests
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
-                echo "flag1"
             }
             post {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    emailext (
-                        to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                         subject: "Testing Successful",
                         body: "Tests using JUnit and Selenium is successful"
-                    )
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
                     echo 'Sending failure notification email - Test'
-                    mail to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                     subject: "Testing failed",
                     body: "Tests using JUnit and Selenium failed"
                     
@@ -50,7 +47,7 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Security scan'
-                    mail to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                     subject: "Security scan successful",
                     body: "security scan with OWASP ZAP is sucessful"
                     
@@ -58,7 +55,7 @@ pipeline {
                 failure {
                     // Sending notification email with failure status and logs attachment
                     echo 'Sending failure notification email - Security scan'
-                    mail to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                     subject: "Security scan failed",
                     body: "security scan with OWASP ZAP failed"
                     
@@ -80,7 +77,7 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Integration test'
-                    mail to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                     subject: "Integration test successful",
                     body: "Integration tests on staging environment using Selenium is sucessful"
                     
@@ -88,7 +85,7 @@ pipeline {
                 failure {
                     // Sending notification email with failure status and logs attachment
                     echo 'Sending failure notification email - Integration test'
-                    mail to: "sathiyanarayanan.test@gmail.com",
+                    emailext to: "sathiyanarayanan.test@gmail.com",
                     subject: "Integration test failed",
                     body: "Integration tests on staging environment using Selenium failed"
                     
