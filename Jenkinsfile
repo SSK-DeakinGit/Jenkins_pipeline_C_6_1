@@ -24,7 +24,7 @@ pipeline {
                                  attachmentsPattern: 'build_logs.txt',
                                  to: "sathiyanarayanan.test@gmail.com",
                                  subject: "Build Status - ${currentBuild.result}",
-                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}""
+                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}"
                         }
                 }
                 success {
