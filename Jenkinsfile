@@ -22,7 +22,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Testing Successful",
                         body: "Tests using JUnit and Selenium is successful",
-                        attachLog: true
+                        // attachLog: true
                     )
                 }
                 failure {
