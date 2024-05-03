@@ -24,7 +24,6 @@ pipeline {
                         subject: "Testing Successful",
                         body: "Tests using JUnit and Selenium is successful"
                     )
-                    
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
