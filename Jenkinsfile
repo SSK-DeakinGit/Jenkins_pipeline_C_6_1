@@ -17,7 +17,7 @@ pipeline {
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    emailext (,
+                    emailext (
                         subject: "Testing Successful",
                         body: "Tests using JUnit and Selenium were successful",
                         to: "sathiyanarayanan.test@gmail.com"
