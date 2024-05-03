@@ -14,6 +14,20 @@ pipeline {
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
             }
             post {
+                always {
+                    script {
+                        // Save console output to a file
+                        def logsFile = 'build_logs.txt'
+                        writeFile file: logsFile, text: currentBuild.rawBuild.getLog(1000).join('\n')
+                
+                        // Sending notification email with logs attachment
+                        emailext attachLog: true,
+                                 attachmentsPattern: logsFile,
+                                 to: "sathiyanarayanan.test@gmail.com",
+                                 subject: "Build Status - ${currentBuild.result}",
+                                 body: "Build ${currentBuild.result}: ${env.BUILD_URL}"
+                    }
+                }
                 success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
