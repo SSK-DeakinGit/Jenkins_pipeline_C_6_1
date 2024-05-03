@@ -23,7 +23,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Testing Successful",
                         body: "Tests using JUnit and Selenium is successful",
-                        attachLogs: true
+                        attachLog: true
                     )
                 }
                 failure {
@@ -33,7 +33,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Testing failed",
                         body: "Tests using JUnit and Selenium failed",
-                        attachLogs: true
+                        attachLog: true
                     )
                     
                 }
@@ -59,7 +59,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Security scan successful",
                         body: "security scan with OWASP ZAP is sucessful",
-                        attachLogs: true
+                        attachLog: true
                     )
                     
                 }
@@ -70,7 +70,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Security scan failed",
                         body: "security scan with OWASP ZAP failed",
-                        attachLogs: true
+                        attachLog: true
                         )
                     
                 }
@@ -95,7 +95,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Integration test successful",
                         body: "Integration tests on staging environment using Selenium is sucessful",
-                        attachLogs: true
+                        attachLog: true
                     )
                     
                 }
@@ -106,7 +106,7 @@ pipeline {
                         to: "sathiyanarayanan.test@gmail.com",
                         subject: "Integration test failed",
                         body: "Integration tests on staging environment using Selenium failed",
-                        attachLogs: true
+                        attachLog: true
                         )
                     
                 }
