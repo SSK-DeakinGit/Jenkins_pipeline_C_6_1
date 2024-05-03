@@ -15,21 +15,25 @@ pipeline {
                 echo 'Running unit tests and integration tests using JUnit and Selenium'
             }
             post {
-                success {
+                script{
+                    success {
                     // Sending notification email with success status and logs attachment
                     echo 'Sending success notification email - Test'
-                    emailext to: "sathiyanarayanan.test@gmail.com",
+                    emailext (to: "sathiyanarayanan.test@gmail.com",
                         subject: "Testing Successful",
-                        body: "Tests using JUnit and Selenium is successful"
+                        body: "Tests using JUnit and Selenium is successful")
                 }
                 failure {
                     // Sending notification email with failure status and logs attachment
                     echo 'Sending failure notification email - Test'
-                    emailext to: "sathiyanarayanan.test@gmail.com",
+                    emailext (to: "sathiyanarayanan.test@gmail.com",
                     subject: "Testing failed",
-                    body: "Tests using JUnit and Selenium failed"
+                    body: "Tests using JUnit and Selenium failed")
                     
                 }
+                    
+                }
+                
             }
         }
         stage('Code Analysis') {
